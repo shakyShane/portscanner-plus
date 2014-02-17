@@ -1,7 +1,7 @@
 {
   "name": "portscanner-plus",
   "description": "Get multiple available ports with optional names ",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/shakyshane/portscanner-plus",
   "author": {
     "name": "Shane Osbourne",
@@ -28,7 +28,8 @@
     "test": "gulp"
   },
   "dependencies": {
-    "lodash": "~2.2.1"
+    "lodash": "~2.2.1",
+    "q": "~1.0.0"
   },
   "devDependencies": {
     "gulp": "~3.5.2",
@@ -36,7 +37,6 @@
     "gulp-jshint": "~1.4.0",
     "chai": "~1.9.0",
     "sinon": "~1.8.2",
-    "q": "~1.0.0",
     "mocha": "~1.17.1",
     "mocha-as-promised": "~2.0.0",
     "portscanner": "~0.2.2"
