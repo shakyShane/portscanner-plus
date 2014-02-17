@@ -1,6 +1,6 @@
 {
-  "name": "heartbeat-monitor",
-  "description": "Keep track of items via heartbeats",
+  "name": "portscanner-plus",
+  "description": "Get multiple available ports with optional names ",
   "version": "0.0.1",
   "homepage": "https://github.com/shakyshane/portscanner-plus",
   "author": {

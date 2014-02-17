@@ -1,4 +1,4 @@
-#  [![Build Status](https://travis-ci.org/shakyShane/portscanner-plus.png?branch=master)](https://travis-ci.org/shakyShane/portscanner-plus)
+#portscanner-plus [![Build Status](https://travis-ci.org/shakyShane/portscanner-plus.png?branch=master)](https://travis-ci.org/shakyShane/portscanner-plus)
 
 Get multiple availble ports within a range - with optional naming
 
@@ -13,8 +13,10 @@ npm install portscanner-plus --save-dev
 ```js
 var portScanner = require("./lib/index");
 
+var names = ['controlPanel', 'socket', 'client'];
+
 // Return named ports as object
-portScanner.getPorts(3, 3000, 4000, ['controlPanel', 'socket', 'client']).then(function (ports) {
+portScanner.getPorts(3, 3000, 4000, names).then(function (ports) {
     console.log(ports.controlPanel); // 3000
     console.log(ports.socket); // 3001
     console.log(ports.client); // 3002
