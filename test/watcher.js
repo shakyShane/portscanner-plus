@@ -54,6 +54,14 @@ describe("Getting ports module", function () {
                 return assert.equal(result.port1, 3000);
             });
         });
+        it("should return a resolved promise with 2 ports & names set to true", function () {
+            var names = true;
+            return portScannerPlus.getPorts(5, 3000, 3001, names).then(function (result) {
+                // should never end here
+            }, function (error) {
+                return assert.equal(error, "Invalid port range");
+            });
+        });
     });
 
     describe("Getting a port range", function () {
