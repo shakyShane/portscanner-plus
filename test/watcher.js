@@ -4,9 +4,23 @@ var portScannerPlus = require("../lib/index");
 var assert = require("chai").assert;
 var sinon = require("sinon");
 var _ = require("lodash");
+var ps = require("portscanner");
 require("mocha-as-promised")();
 
 describe("Getting ports module", function () {
+
+    var psStub;
+    before(function () {
+        psStub = sinon.stub(ps, 'findAPortNotInUse').yields(null, null);
+        psStub.onFirstCall().yields(null, 3000);
+        psStub.onSecondCall().yields(null, 3001);
+    });
+    afterEach(function () {
+        psStub.reset();
+    });
+    after(function () {
+        psStub.restore();
+    });
 
     describe("the getPorts method", function () {
 
@@ -18,6 +32,7 @@ describe("Getting ports module", function () {
             assert.isDefined(func.then);
         });
         it("should return a resolved promise with 1 port", function (done) {
+            psStub.yields(null, 3000);
             var expected = 3000;
             return portScannerPlus.getPorts(1, 3000, 4000).then(function (result) {
                 return assert.equal(result[0], 3000);
@@ -31,6 +46,7 @@ describe("Getting ports module", function () {
             });
         });
         it("should return a resolved promise with 2 ports (1)", function () {
+
             var names = ["port1", "port2"];
             return portScannerPlus.getPorts(2, 3000, 4000, names).then(function (result) {
                 return assert.equal(result.port1, 3000);
