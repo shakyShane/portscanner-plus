@@ -3,7 +3,6 @@
 var portScannerPlus = require("../lib/index");
 var assert = require("chai").assert;
 var sinon = require("sinon");
-var _ = require("lodash");
 var ps = require("portscanner");
 require("mocha-as-promised")();
 
@@ -11,7 +10,7 @@ describe("Getting ports module", function () {
 
     var psStub;
     before(function () {
-        psStub = sinon.stub(ps, 'findAPortNotInUse').yields(null, null);
+        psStub = sinon.stub(ps, "findAPortNotInUse").yields(null, null);
         psStub.onFirstCall().yields(null, 3000);
         psStub.onSecondCall().yields(null, 3001);
     });
