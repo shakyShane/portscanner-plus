@@ -1,7 +1,7 @@
 {
   "name": "portscanner-plus",
   "description": "Get multiple available ports with optional names ",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "homepage": "https://github.com/shakyshane/portscanner-plus",
   "author": {
     "name": "Shane Osbourne",
