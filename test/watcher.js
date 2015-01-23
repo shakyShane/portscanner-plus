@@ -1,10 +1,9 @@
 "use strict";
 
-var portScannerPlus = require("../lib/index");
+var portScannerPlus = require("..");
 var assert = require("chai").assert;
 var sinon = require("sinon");
 var ps = require("portscanner");
-require("mocha-as-promised")();
 
 describe("Getting ports module", function () {
 
@@ -30,22 +29,18 @@ describe("Getting ports module", function () {
             var func = portScannerPlus.getPorts();
             assert.isDefined(func.then);
         });
-        it("should return a resolved promise with 1 port", function (done) {
+        it("should return a resolved promise with 1 port", function () {
             psStub.yields(null, 3000);
-            var expected = 3000;
             return portScannerPlus.getPorts(1, 3000, 4000).then(function (result) {
                 return assert.equal(result[0], 3000);
             });
         });
         it("should return a resolved promise with 2 ports", function () {
-            var expected1 = 3000;
-            var expected2 = 3001;
             return portScannerPlus.getPorts(2, 3000, 4000).then(function (result) {
                 return assert.equal(result[1], 3001);
             });
         });
         it("should return a resolved promise with 2 ports (1)", function () {
-
             var names = ["port1", "port2"];
             return portScannerPlus.getPorts(2, 3000, 4000, names).then(function (result) {
                 return assert.equal(result.port1, 3000);
@@ -71,9 +66,7 @@ describe("Getting ports module", function () {
         });
         it("should return a resolved promise with 2 ports & names set to true", function () {
             var names = true;
-            return portScannerPlus.getPorts(5, 3000, 3001, names).then(function (result) {
-                // should never end here
-            }, function (error) {
+            return portScannerPlus.getPorts(5, 3000, 3001, names).catch(function (error) {
                 return assert.equal(error, "Invalid port range");
             });
         });

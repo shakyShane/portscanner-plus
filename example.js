@@ -1,3 +1,5 @@
+"use strict";
+
 var portScanner = require("./lib/index");
 
 // Return named ports as object
