@@ -1,4 +1,4 @@
-#portscanner-plus [![Build Status](https://travis-ci.org/shakyShane/portscanner-plus.png?branch=master)](https://travis-ci.org/shakyShane/portscanner-plus)
+#portscanner-plus [![Build Status](https://travis-ci.org/shakyShane/portscanner-plus.svg?branch=master)](https://travis-ci.org/shakyShane/portscanner-plus)
 
 Get multiple availble ports within a range - with optional naming
 
