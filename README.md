@@ -11,7 +11,7 @@ npm install portscanner-plus --save-dev
 ##Usage
 
 ```js
-var portScanner = require("./lib/index");
+var portScanner = require("portscanner-plus");
 
 var names = ['controlPanel', 'socket', 'client'];
 
